@@ -3,7 +3,7 @@ package codility;
 /**
  * Created by vranjesluka on 12/02/2017.
  */
-public class D2_NumberOfDiscIntersections {
+public class L6D_NumberOfDiscIntersections {
 
     private static final int MAX_NUMBER_OF_INTERSECTING_PARIS = 10000000;
 
@@ -44,7 +44,7 @@ public class D2_NumberOfDiscIntersections {
     }
 
     public static void main(String[] args) {
-        D2_NumberOfDiscIntersections solution = new D2_NumberOfDiscIntersections();
+        L6D_NumberOfDiscIntersections solution = new L6D_NumberOfDiscIntersections();
         System.out.println(solution.solution(new int[]{1, 5, 2, 1, 4, 0}));
     }
 

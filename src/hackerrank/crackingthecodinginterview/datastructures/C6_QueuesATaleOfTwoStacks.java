@@ -29,34 +29,31 @@ public class C6_QueuesATaleOfTwoStacks {
 
     private static class MyQueue<T> {
 
-        Stack<T> stack = new Stack<>();
+        Stack<T> enqueueStack = new Stack<>();
+        Stack<T> dequeueStack = new Stack<>();
 
         public void enqueue(T element) {
-            stack.push(element);
+            enqueueStack.push(element);
         }
 
         public T dequeue() {
-            Stack<T> helperStack = new Stack<>();
-            while (!stack.empty()) {
-                helperStack.push(stack.pop());
+            if (!dequeueStack.empty()) {
+                return dequeueStack.pop();
             }
-            T element = helperStack.pop();
-            while (!helperStack.empty()) {
-                stack.push(helperStack.pop());
+            while (!enqueueStack.empty()) {
+                dequeueStack.push(enqueueStack.pop());
             }
-            return element;
+            return dequeueStack.pop();
         }
 
         public T peek() {
-            Stack<T> helperStack = new Stack<>();
-            while (!stack.empty()) {
-                helperStack.push(stack.pop());
+            if (!dequeueStack.empty()) {
+                return dequeueStack.peek();
             }
-            T element = helperStack.peek();
-            while (!helperStack.empty()) {
-                stack.push(helperStack.pop());
+            while (!enqueueStack.empty()) {
+                dequeueStack.push(enqueueStack.pop());
             }
-            return element;
+            return dequeueStack.peek();
         }
     }
 }

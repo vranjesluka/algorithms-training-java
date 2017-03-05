@@ -1,6 +1,7 @@
 package hackerrank.crackingthecodinginterview.datastructures;
 
 import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by vranjesluka on 05/03/2017.
@@ -13,7 +14,7 @@ public class C4_LinkedListsDetectACycle {
 
     boolean hasCycle(Node head) {
         Node currentNode = head;
-        HashSet<Node> nodeHashes = new HashSet<>();
+        Set<Node> nodeHashes = new HashSet<>();
         while (currentNode != null) {
             nodeHashes.add(currentNode);
             currentNode = currentNode.next;

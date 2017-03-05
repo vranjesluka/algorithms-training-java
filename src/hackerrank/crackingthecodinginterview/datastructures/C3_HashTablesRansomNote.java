@@ -1,6 +1,7 @@
 package hackerrank.crackingthecodinginterview.datastructures;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -12,7 +13,7 @@ public class C3_HashTablesRansomNote {
         Scanner in = new Scanner(System.in);
         int m = in.nextInt();
         int n = in.nextInt();
-        HashMap<String, Integer> magazineWords = new HashMap<>(m);
+        Map<String, Integer> magazineWords = new HashMap<>(m);
         for (int magazine_i = 0; magazine_i < m; magazine_i++) {
             String currentWord = in.next();
             if (magazineWords.containsKey(currentWord)) {

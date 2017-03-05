@@ -1,4 +1,4 @@
-package hackerrank.crackingthecodinginterview;
+package hackerrank.crackingthecodinginterview.datastructures;
 
 import java.util.Scanner;
 

@@ -30,9 +30,14 @@ public class C9_TriesContacts {
             Node currentNode = head;
             int i = 0;
             char currentChar = contact.charAt(i);
+            currentNode.count++;
             while (currentNode.children.containsKey(currentChar)) {
                 currentNode = currentNode.children.get(currentChar);
+                currentNode.count++;
                 i++;
+                if (i >= contact.length()) {
+                    break;
+                }
                 currentChar = contact.charAt(i);
             }
             for (; i < contact.length(); i++) {
@@ -40,41 +45,27 @@ public class C9_TriesContacts {
                 Node newNode = new Node();
                 currentNode.children.put(currentChar, newNode);
                 currentNode = newNode;
+                currentNode.count++;
             }
-            currentNode.isAContact = true;
         }
 
         private int find(String search) {
             Node currentNode = head;
             int i = 0;
-            char currentChar = search.charAt(i);
-            while (currentNode.children.containsKey(currentChar)) {
-                i++;
-                if (i >= search.length()) {
-                    break;
+            while (i < search.length()) {
+                char currentChar = search.charAt(i);
+                if (!currentNode.children.containsKey(currentChar)) {
+                    return 0;
                 }
                 currentNode = currentNode.children.get(currentChar);
-                currentChar = search.charAt(i);
+                i++;
             }
-            if (!currentNode.children.containsKey(currentChar)) {
-                return 0;
-            }
-            int numberOfContacts = 0;
-            List<Node> children = new ArrayList<>();
-            children.add(currentNode);
-            while (!children.isEmpty()) {
-                currentNode = children.remove(children.size() - 1);
-                if (currentNode.isAContact) {
-                    numberOfContacts++;
-                }
-                children.addAll(currentNode.children.values());
-            }
-            return numberOfContacts;
+            return currentNode.count;
         }
 
         private class Node {
             Map<Character, Node> children = new HashMap<>();
-            boolean isAContact;
+            int count;
         }
     }
 }

@@ -40,7 +40,7 @@ public class C4_BinarySearchIceCreamParlor {
                 }
             }
 
-            printeValuesIndexes(a, firstValue, secondValue);
+            printValuesIndexes(a, firstValue, secondValue);
         }
     }
 
@@ -65,7 +65,7 @@ public class C4_BinarySearchIceCreamParlor {
         }
     }
 
-    private static void printeValuesIndexes(int[] a, int firstValue, int secondValue) {
+    private static void printValuesIndexes(int[] a, int firstValue, int secondValue) {
         for (int i = 0; i < a.length; i++) {
             if (a[i] == firstValue || a[i] == secondValue) {
                 System.out.print("" + (i + 1) + " ");

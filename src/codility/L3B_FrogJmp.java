@@ -5,7 +5,7 @@ package codility;
  */
 public class L3B_FrogJmp {
 
-    //Third lesson A
+    //Third lesson B
     public int solution(int X, int Y, int D) {
         // write your code in Java SE 8
         return (int) Math.ceil((double) (Y - X) / D);
